@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.miapp.loginapi.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.miapp.loginapi.ui.Perfil.PerfilFragment"
+        android:label="@string/perfil"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_inmuebles"
+        android:name="com.miapp.loginapi.ui.Inmuebles.InmueblesFragment"
+        android:label="@string/inmuebles"
+        tools:layout="@layout/fragment_inmuebles" />
+</navigation>
