@@ -44,7 +44,7 @@ public class ContratoViewModel extends AndroidViewModel {
         Apicliente.init(getApplication());
         Apicliente.MisEndPoints api = Apicliente.getEndPoints();
         String token = Apicliente.getToken();
-        Call<List<Inmueble>> call = api.getInmuebles(token);
+        Call<List<Inmueble>> call = api.GetInmueblescontrato(token);
         call.enqueue(new Callback<List<Inmueble>>() {
             @Override
             public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {

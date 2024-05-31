@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.miapp.loginapi.R;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +46,12 @@ public class PagoAdapter extends RecyclerView.Adapter<PagoAdapter.PagosViewHolde
        holder.tvIdPago.setText(String.valueOf(pago.getNumeroPago()));
         holder.tvCodigoContratoPago.setText(String.valueOf(pago.getContratoId()));
         holder.tvMonto.setText(String.valueOf(pago.getImporte()));
-        holder.tvFechaPago.setText(String.valueOf(pago.getFechaPago()));
+        LocalDate fechaInicio = LocalDate.parse(pago.getFechaPago(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        String fechaInicioFormateada = fechaInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+
+        holder.tvFechaPago.setText(fechaInicioFormateada);
 
     }
 

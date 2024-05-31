@@ -74,11 +74,20 @@ public class Apicliente {
         @GET("api/Propietarios/getPropietario")
         Call<Propietario> getPropietario(@Header("Authorization") String token);
 
-        @GET("api/Inmuebles/GetInmuebles")
-        Call<List<Inmueble>> getInmuebles(@Header("Authorization") String token);
+
+        @FormUrlEncoded
+        @POST("api/Propietarios/emailes")
+        Call<String> newpassword(@Field("email") String email);
 
         @PUT("api/Propietarios/put")
         Call<Propietario> ActualizarPropietario(@Header("Authorization") String token, @Body Propietario p);
+
+        @GET("api/Inmuebles/GetInmuebles")
+        Call<List<Inmueble>> getInmuebles(@Header("Authorization") String token);
+
+        @PUT("api/Inmuebles/PutInmueble")
+        Call<Inmueble> ActualizarInmueble(@Header("Authorization") String token, @Body Inmueble p);
+
 
         @Multipart
         @POST("api/Inmuebles/cargar")
@@ -91,17 +100,16 @@ public class Apicliente {
                 @Header("Authorization") String token,
                 @Path("id") int id);
 
+
+        @GET("api/Contrato/GetInmueblescontrato")
+        Call<List<Inmueble>> GetInmueblescontrato(@Header("Authorization") String token);
+
         @GET("api/Pago/pago/{id}")
         Call <List<Pago>> obternerPagos(
                 @Header("Authorization") String token,
                 @Path("id") int id);
 
-        @PUT("api/Inmuebles/PutInmueble")
-        Call<Inmueble> ActualizarInmueble(@Header("Authorization") String token, @Body Inmueble p);
 
-        @FormUrlEncoded
-        @POST("api/Propietarios/emailes")
-        Call<String> newpassword(@Field("email") String email);
     }
 
 }

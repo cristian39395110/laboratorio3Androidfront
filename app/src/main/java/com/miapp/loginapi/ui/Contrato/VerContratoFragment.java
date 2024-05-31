@@ -52,9 +52,11 @@ public class VerContratoFragment extends Fragment {
                 LocalDate fechaFinalizacion = LocalDate.parse(contrato.getFechaFin(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 binding.tvCodigoContrato.setText(contrato.getId() + "");
 
+                String fechaInicioFormateada = fechaInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                String fechaFinalizacionFormateada = fechaFinalizacion.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-                binding.tvFechaInicio.setText(fechaInicio + "");
-                binding.tvFechaFinalizacion.setText(fechaFinalizacion + "");
+                binding.tvFechaInicio.setText(fechaInicioFormateada + "");
+                binding.tvFechaFinalizacion.setText(fechaFinalizacionFormateada + "");
                 binding.tvMontoAlquiler.setText(String.valueOf(contrato.getPrecioXmes()));
                 binding.tvnom.setText(contrato.getInquilino().getApellido().toString());
                 binding.tvapellidose.setText(contrato.getInquilino().getNombre().toString());
