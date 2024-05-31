@@ -47,7 +47,7 @@ public class EditarFragment extends Fragment {
             @Override
             public void onChanged(Inmueble inmuebles) {
                 inmueble=inmuebles;
-                if (inmueble != null) {
+
                     Log.d("ambar", inmueble.getDireccion());
                     binding.eteditarcodigo.setText(String.valueOf(inmueble.getId()));
                     binding.edambienteeditar.setText(String.valueOf(inmueble.getCantidadAmbientes()));
@@ -63,7 +63,7 @@ public class EditarFragment extends Fragment {
                             .placeholder(null) // Reemplaza con tu recurso de imagen de reemplazo
                             .error("null") // Reemplaza con tu recurso de imagen de error
                             .into(binding.fotoeditar);
-                }
+
             }
         });
         binding.buttoneditar.setOnClickListener(new View.OnClickListener() {
