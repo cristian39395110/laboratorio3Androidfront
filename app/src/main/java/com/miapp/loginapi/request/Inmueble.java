@@ -3,6 +3,7 @@ package com.miapp.loginapi.request;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class Inmueble implements Serializable {
 
@@ -13,17 +14,63 @@ public class Inmueble implements Serializable {
 
     private String direccion;
 
-    private InmuebleTipos inmuebleTipo;
+    private String inmuebleTipoId;
 
     private int cantidadAmbientes;
     private Boolean suspendido;
     private Boolean disponible;
     private BigDecimal precioBase;
     private String uso;
+    private byte[] pumba;
+
+
 
     private int foto;
 
     private String imagen;
+    private String imagenBase64;
+
+    public String getImagenBase64() {
+        return imagenBase64;
+    }
+
+    public void setImagenBase64(String imagenBase64) {
+        this.imagenBase64 = imagenBase64;
+    }
+
+    public Inmueble( ) {
+
+    }
+
+    public Inmueble(Propietario propietario, String direccion, String inmuebleTipoId, int cantidadAmbientes, Boolean suspendido, Boolean disponible, BigDecimal precioBase, String uso) {
+        this.propietario = propietario;
+        this.direccion = direccion;
+        this.inmuebleTipoId = inmuebleTipoId;
+        this.cantidadAmbientes = cantidadAmbientes;
+        this.suspendido = suspendido;
+        this.disponible = disponible;
+        this.precioBase = precioBase;
+        this.uso = uso;
+
+    }
+    public Inmueble(  String direccion, String inmuebleTipoId, int cantidadAmbientes, Boolean disponible, BigDecimal precioBase, String uso) {
+
+        this.direccion = direccion;
+        this.inmuebleTipoId = inmuebleTipoId;
+        this.cantidadAmbientes = cantidadAmbientes;
+        this.disponible = disponible;
+        this.precioBase = precioBase;
+        this.uso = uso;
+
+    }
+
+    public byte[] getPumba() {
+        return pumba;
+    }
+
+    public void setPumba(byte[] pumba) {
+        this.pumba = pumba;
+    }
 
     public String getFotobase() {
         return imagen;
@@ -66,12 +113,12 @@ public class Inmueble implements Serializable {
         this.direccion = direccion;
     }
 
-    public InmuebleTipos getInmuebleTipo() {
-        return inmuebleTipo;
+    public String getInmuebleTipo() {
+        return inmuebleTipoId;
     }
 
-    public void setInmuebleTipo(InmuebleTipos inmuebleTipo) {
-        this.inmuebleTipo = inmuebleTipo;
+    public void setInmuebleTipo(String inmuebleTipoId) {
+        this.inmuebleTipoId = inmuebleTipoId;
     }
 
     public int getCantidadAmbientes() {
@@ -114,19 +161,23 @@ public class Inmueble implements Serializable {
         this.uso = uso;
     }
 
+
     @Override
     public String toString() {
         return "Inmueble{" +
                 "id=" + id +
                 ", propietario=" + propietario +
                 ", direccion='" + direccion + '\'' +
-                ", inmuebleTipo=" + inmuebleTipo +
+                ", inmuebleTipoId='" + inmuebleTipoId + '\'' +
                 ", cantidadAmbientes=" + cantidadAmbientes +
                 ", suspendido=" + suspendido +
                 ", disponible=" + disponible +
                 ", precioBase=" + precioBase +
                 ", uso='" + uso + '\'' +
+                ", pumba=" + Arrays.toString(pumba) +
                 '}';
     }
+
+
 }
 

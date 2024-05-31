@@ -1,63 +1,67 @@
-package com.miapp.loginapi.ui.Inmuebles;
+package com.miapp.loginapi.ui.Contrato;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.miapp.loginapi.R;
 import com.miapp.loginapi.databinding.FragmentInmueblesBinding;
 import com.miapp.loginapi.request.Inmueble;
 import com.miapp.loginapi.request.InmuebleAdapter;
+import com.miapp.loginapi.request.InmuebleAdapterContrato;
+import com.miapp.loginapi.ui.Inmuebles.InmueblesFragment;
+import com.miapp.loginapi.ui.Inmuebles.InmueblesViewModel;
 
 import java.util.List;
 
+public class ContratoFragment extends Fragment {
 
-public class InmueblesFragment extends Fragment {
-   private InmueblesViewModel inmueblesViewModel;
+    private ContratoViewModel mViewModel;
+
     private FragmentInmueblesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        InmueblesViewModel inmueblesViewModel =
-                new ViewModelProvider(this).get(InmueblesViewModel.class);
+        ContratoViewModel mViewModel =
+                new ViewModelProvider(this).get(ContratoViewModel.class);
 
         binding = FragmentInmueblesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
-      binding.fabAdd.setOnClickListener(new View.OnClickListener() {
+        binding.fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(InmueblesFragment.this)
+                NavHostFragment.findNavController(ContratoFragment.this)
                         .navigate(R.id.action_nav_inmuebles_to_agregarInmuebleFragment);
 
             }
         });
 
 
-        inmueblesViewModel.getListaMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
+        mViewModel.getListaMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
-                InmuebleAdapter adapter = new InmuebleAdapter(inmuebles, requireContext(), getLayoutInflater());
+                InmuebleAdapterContrato adapter = new InmuebleAdapterContrato(inmuebles, requireContext(), getLayoutInflater());
                 RecyclerView rc = binding.lista;
                 rc.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
                 rc.setAdapter(adapter);
 
             }
         });
-        inmueblesViewModel.cargarInmuebles();
+        mViewModel.cargarInmuebles();
         return root;
     }
 

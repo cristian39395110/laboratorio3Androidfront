@@ -5,8 +5,8 @@ import java.util.List;
 public class Inquilino {
     private int Id ;
     private String DNI;
-    private String Nombre ;
-    private String Apellido ;
+    private String nombre ;
+    private String apellido ;
     private String Telefono;
 
     private String Email;
@@ -33,19 +33,19 @@ public class Inquilino {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        nombre = nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
     public void setApellido(String apellido) {
-        Apellido = apellido;
+        apellido = apellido;
     }
 
     public String getTelefono() {
@@ -85,8 +85,8 @@ public class Inquilino {
         return "Inquilino{" +
                 "Id=" + Id +
                 ", DNI='" + DNI + '\'' +
-                ", Nombre='" + Nombre + '\'' +
-                ", Apellido='" + Apellido + '\'' +
+                ", Nombre='" + nombre + '\'' +
+                ", Apellido='" + apellido + '\'' +
                 ", Telefono='" + Telefono + '\'' +
                 ", Email='" + Email + '\'' +
                 ", Domicilio='" + Domicilio + '\'' +

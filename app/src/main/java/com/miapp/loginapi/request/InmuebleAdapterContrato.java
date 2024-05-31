@@ -18,15 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.miapp.loginapi.R;
-import com.miapp.loginapi.request.Inmueble;
 
 import java.util.List;
 
-public  class InmuebleAdapter extends RecyclerView.Adapter{
+public  class InmuebleAdapterContrato extends RecyclerView.Adapter{
     private List<Inmueble> listaInmueble;
     private Context context;
     private LayoutInflater li;
-    public InmuebleAdapter(List<Inmueble> listaInmueble, Context context, LayoutInflater li) {
+    public InmuebleAdapterContrato(List<Inmueble> listaInmueble, Context context, LayoutInflater li) {
         this.listaInmueble = listaInmueble;
         this.context = context;
         this.li = li;
@@ -57,7 +56,7 @@ public  class InmuebleAdapter extends RecyclerView.Adapter{
 
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("inmueble",inmueble);
-                Navigation.findNavController((Activity) v.getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.editarFragment,bundle);
+                Navigation.findNavController((Activity) v.getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.verContratoFragment,bundle);
 
             }
         });

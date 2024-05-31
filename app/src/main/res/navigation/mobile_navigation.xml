@@ -6,10 +6,10 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.miapp.loginapi.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+       android:id="@+id/nav_home"
+        android:name="com.miapp.loginapi.ui.home.MapsFragment"
+        android:label="@string/mapa"
+        tools:layout="@layout/fragment_maps" />
 
     <fragment
         android:id="@+id/nav_perfil"
@@ -21,5 +21,65 @@
         android:id="@+id/nav_inmuebles"
         android:name="com.miapp.loginapi.ui.Inmuebles.InmueblesFragment"
         android:label="@string/inmuebles"
-        tools:layout="@layout/fragment_inmuebles" />
+        tools:layout="@layout/fragment_inmuebles" >
+        <action
+            android:id="@+id/action_nav_inmuebles_to_agregarInmuebleFragment"
+            app:destination="@id/agregarInmuebleFragment" />
+        <action
+            android:id="@+id/action_nav_inmuebles_to_editarFragment"
+            app:destination="@id/editarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarInmuebleFragment"
+        android:name="com.miapp.loginapi.ui.Inmuebles.AgregarInmuebleFragment"
+        android:label="Agregar Inmueble"
+        tools:layout="@layout/fragment_agregar_inmueble" >
+        <action
+            android:id="@+id/action_agregarInmuebleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/contratoFragment"
+        android:name="com.miapp.loginapi.ui.Contrato.ContratoFragment"
+        android:label="Contrato"
+        tools:layout="@layout/fragment_contrato" >
+        <action
+            android:id="@+id/action_contratoFragment_to_verContratoFragment"
+            app:destination="@id/verContratoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verContratoFragment"
+        android:name="com.miapp.loginapi.ui.Contrato.VerContratoFragment"
+        android:label="Contrato"
+        tools:layout="@layout/fragment_ver_contrato" >
+        <action
+            android:id="@+id/action_verContratoFragment_to_contratoFragment"
+            app:destination="@id/contratoFragment" />
+        <action
+            android:id="@+id/action_verContratoFragment_to_pagosFragment"
+            app:destination="@id/pagosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pagosFragment"
+        android:name="com.miapp.loginapi.ui.Pago.PagosFragment"
+        android:label="Pagos"
+        tools:layout="@layout/fragment_pagos" >
+        <action
+            android:id="@+id/action_pagosFragment_to_verContratoFragment"
+            app:destination="@id/verContratoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarFragment"
+        android:name="com.miapp.loginapi.ui.Inmuebles.EditarFragment"
+        android:label="Editar"
+        tools:layout="@layout/fragment_editar" >
+        <action
+            android:id="@+id/action_editarFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/salirFragment"
+        android:name="com.miapp.loginapi.ui.Salir.SalirFragment"
+        android:label="Salir"
+        tools:layout="@layout/fragment_salir" />
 </navigation>

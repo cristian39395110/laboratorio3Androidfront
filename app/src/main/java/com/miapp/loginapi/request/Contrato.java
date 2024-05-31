@@ -1,10 +1,11 @@
 package com.miapp.loginapi.request;
 
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Contrato {
+public class Contrato implements Serializable {
 
     private int id;
 
@@ -12,12 +13,14 @@ public class Contrato {
 
     private Inquilino inquilino;
 
-    private LocalDate fechaFin;
+    private String fechaFin;
 
-    private LocalDate fechaFinAnticipada;
 
-    private BigDecimal precioXMes;
+
+    private BigDecimal precioXmes;
     private boolean estado;
+    private String fechaInicio;
+    private String fechaFinAnticipada;
 
     public int getId() {
         return id;
@@ -43,28 +46,20 @@ public class Contrato {
         this.inquilino = inquilino;
     }
 
-    public LocalDate getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
-    public LocalDate getFechaFinAnticipada() {
-        return fechaFinAnticipada;
+    public BigDecimal getPrecioXmes() {
+        return precioXmes;
     }
 
-    public void setFechaFinAnticipada(LocalDate fechaFinAnticipada) {
-        this.fechaFinAnticipada = fechaFinAnticipada;
-    }
-
-    public BigDecimal getPrecioXMes() {
-        return precioXMes;
-    }
-
-    public void setPrecioXMes(BigDecimal precioXMes) {
-        this.precioXMes = precioXMes;
+    public void setPrecioXmes(BigDecimal precioXmes) {
+        this.precioXmes = precioXmes;
     }
 
     public boolean isEstado() {
@@ -74,4 +69,21 @@ public class Contrato {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFinAnticipada() {
+        return fechaFinAnticipada;
+    }
+
+    public void setFechaFinAnticipada(String fechaFinAnticipada) {
+        this.fechaFinAnticipada = fechaFinAnticipada;
+    }
+
 }

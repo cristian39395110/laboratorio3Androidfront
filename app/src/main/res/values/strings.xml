@@ -16,4 +16,12 @@
     <string name="inmuebles">Inmuebles</string>
     <string name="Inmubles">Inmuebles</string>
     <string name="Inmuebles">Inmuebles</string>
+    <string name="a_adirinmueble">añadirinmueble</string>
+    <string name="contrato">Contrato</string>
+    <string name="mapa">Mapa</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Inmobiliaria">Inmobiliaria</string>
+    <string name="Ruben">rv98478@gmail.com</string>
+    <string name="Salir">Salir</string>
 </resources>
